@@ -1,0 +1,11 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.7-buster-run
+
+RUN pip3 install --upgrade \
+    datadog \
+    speedtest-cli
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+CMD ["bash", "start.sh"]
